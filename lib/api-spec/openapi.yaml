@@ -10,6 +10,14 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: students
+    description: Student operations
+  - name: departments
+    description: Department operations
+  - name: courses
+    description: Course operations
+  - name: dashboard
+    description: Dashboard operations
 paths:
   /healthz:
     get:
@@ -24,6 +32,280 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /dashboard/summary:
+    get:
+      operationId: getDashboardSummary
+      tags: [dashboard]
+      summary: Dashboard summary stats
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
+  /departments:
+    get:
+      operationId: listDepartments
+      tags: [departments]
+      summary: List departments
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Department"
+    post:
+      operationId: createDepartment
+      tags: [departments]
+      summary: Create department
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DepartmentInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
+
+  /departments/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: getDepartment
+      tags: [departments]
+      summary: Get department
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
+    put:
+      operationId: updateDepartment
+      tags: [departments]
+      summary: Update department
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DepartmentInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
+    delete:
+      operationId: deleteDepartment
+      tags: [departments]
+      summary: Delete department
+      responses:
+        "204":
+          description: Deleted
+
+  /courses:
+    get:
+      operationId: listCourses
+      tags: [courses]
+      summary: List courses
+      parameters:
+        - name: departmentId
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Course"
+    post:
+      operationId: createCourse
+      tags: [courses]
+      summary: Create course
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+
+  /courses/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: getCourse
+      tags: [courses]
+      summary: Get course
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+    put:
+      operationId: updateCourse
+      tags: [courses]
+      summary: Update course
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+    delete:
+      operationId: deleteCourse
+      tags: [courses]
+      summary: Delete course
+      responses:
+        "204":
+          description: Deleted
+
+  /students:
+    get:
+      operationId: listStudents
+      tags: [students]
+      summary: List / search students
+      parameters:
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: departmentId
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: courseId
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudentListResponse"
+    post:
+      operationId: createStudent
+      tags: [students]
+      summary: Create student
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudentInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Student"
+
+  /students/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: getStudent
+      tags: [students]
+      summary: Get student
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Student"
+    put:
+      operationId: updateStudent
+      tags: [students]
+      summary: Update student
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StudentInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Student"
+    delete:
+      operationId: deleteStudent
+      tags: [students]
+      summary: Delete student
+      responses:
+        "204":
+          description: Deleted
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +316,229 @@ components:
       required:
         - status
 
+    Department:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+          nullable: true
+        studentCount:
+          type: integer
+        courseCount:
+          type: integer
+      required: [id, name, code]
+
+    DepartmentInput:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+          nullable: true
+      required: [name, code]
+
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        departmentId:
+          type: integer
+        departmentName:
+          type: string
+        credits:
+          type: integer
+        studentCount:
+          type: integer
+      required: [id, name, code, departmentId, credits]
+
+    CourseInput:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        departmentId:
+          type: integer
+        credits:
+          type: integer
+      required: [name, code, departmentId, credits]
+
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+        studentCode:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        dateOfBirth:
+          type: string
+          format: date
+        address:
+          type: string
+        departmentId:
+          type: integer
+        departmentName:
+          type: string
+        courseId:
+          type: integer
+        courseName:
+          type: string
+        year:
+          type: integer
+        semester:
+          type: integer
+        cgpa:
+          type: number
+        attendancePercentage:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - studentCode
+        - fullName
+        - email
+        - phone
+        - gender
+        - dateOfBirth
+        - address
+        - departmentId
+        - courseId
+        - year
+        - semester
+        - cgpa
+        - attendancePercentage
+        - createdAt
+
+    StudentInput:
+      type: object
+      properties:
+        studentCode:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        dateOfBirth:
+          type: string
+          format: date
+        address:
+          type: string
+        departmentId:
+          type: integer
+        courseId:
+          type: integer
+        year:
+          type: integer
+        semester:
+          type: integer
+        cgpa:
+          type: number
+        attendancePercentage:
+          type: number
+      required:
+        - studentCode
+        - fullName
+        - email
+        - phone
+        - gender
+        - dateOfBirth
+        - address
+        - departmentId
+        - courseId
+        - year
+        - semester
+        - cgpa
+        - attendancePercentage
+
+    StudentListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Student"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+      required: [items, total, page, pageSize]
+
+    DashboardSummary:
+      type: object
+      properties:
+        totalStudents:
+          type: integer
+        totalDepartments:
+          type: integer
+        totalCourses:
+          type: integer
+        averageCgpa:
+          type: number
+        averageAttendance:
+          type: number
+        departmentDistribution:
+          type: array
+          items:
+            type: object
+            properties:
+              departmentName:
+                type: string
+              count:
+                type: integer
+            required: [departmentName, count]
+        yearDistribution:
+          type: array
+          items:
+            type: object
+            properties:
+              year:
+                type: integer
+              count:
+                type: integer
+            required: [year, count]
+        recentStudents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Student"
+      required:
+        - totalStudents
+        - totalDepartments
+        - totalCourses
+        - averageCgpa
+        - averageAttendance
+        - departmentDistribution
+        - yearDistribution
+        - recentStudents

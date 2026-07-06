@@ -1,0 +1,136 @@
+Build a complete, production-ready Full Stack Student Management System with a modern and professional UI.
+
+Project Name:
+Student Management System
+
+Objective:
+Develop a responsive web application that allows administrators to manage student records efficiently. The project should be clean, well-structured, beginner-friendly, and suitable for a professional GitHub portfolio.
+
+Frontend Requirements:
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Responsive Design
+- Modern Dashboard UI
+- Sidebar Navigation
+- Navbar
+- Cards and Tables
+- Beautiful Forms
+- Light Theme with Professional Colors
+- Font Awesome Icons
+- Animations and Smooth Transitions
+
+Backend Requirements:
+- Java Spring Boot
+- REST API
+- Maven Project
+- MVC Architecture
+- Layered Structure
+- Exception Handling
+- Validation
+- Lombok
+- JPA/Hibernate
+
+Database:
+- MySQL
+- Create SQL Schema
+- Sample Data
+- CRUD Operations
+
+Modules:
+1. Admin Login
+2. Dashboard
+3. Add Student
+4. View Students
+5. Update Student
+6. Delete Student
+7. Search Student
+8. Student Details
+9. Department Management
+10. Course Management
+11. Attendance Management
+12. Marks Management
+13. Profile Management
+
+Student Fields:
+- Student ID
+- Full Name
+- Email
+- Phone Number
+- Gender
+- Date of Birth
+- Address
+- Department
+- Course
+- Year
+- Semester
+- CGPA
+- Attendance Percentage
+
+Dashboard Features:
+- Total Students
+- Total Departments
+- Total Courses
+- Student Statistics
+- Recent Students
+- Search Bar
+- Quick Actions
+- Responsive Cards
+- Charts (Chart.js)
+
+REST APIs:
+GET /students
+GET /students/{id}
+POST /students
+PUT /students/{id}
+DELETE /students/{id}
+GET /departments
+POST /departments
+GET /courses
+POST /courses
+
+Project Structure:
+Frontend/
+Backend/
+Database/
+README.md
+Screenshots/
+API Documentation/
+
+GitHub Requirements:
+- Professional README.md
+- Installation Guide
+- Technologies Used
+- Features
+- Folder Structure
+- API Documentation
+- Screenshots
+- Future Enhancements
+- License (MIT)
+
+Additional Features:
+- Form Validation
+- Toast Notifications
+- Loading Spinner
+- Pagination
+- Search & Filter
+- Sorting
+- Export Students to PDF
+- Export Students to Excel
+- Dark Mode Toggle
+- Mobile Responsive Layout
+
+Generate:
+1. Complete Source Code
+2. All HTML, CSS, JavaScript Files
+3. Spring Boot Backend
+4. MySQL Database Script
+5. API Documentation
+6. README.md
+7. Folder Structure
+8. Maven Configuration
+9. application.properties
+10. Screenshots Placeholder
+11. Sample Database Records
+
+The project should run without errors after configuring MySQL credentials. Follow industry-standard coding practices, clean architecture, and proper comments. Make the project suitable for a software engineering portfolio and GitHub repository.

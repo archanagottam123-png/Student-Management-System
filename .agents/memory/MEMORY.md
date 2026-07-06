@@ -1,0 +1,1 @@
+- [Wouter Route children-as-function hooks bug](wouter-route-hooks.md) — never call hooks directly inside a `<Route>` render-prop function; extract to a named component.
