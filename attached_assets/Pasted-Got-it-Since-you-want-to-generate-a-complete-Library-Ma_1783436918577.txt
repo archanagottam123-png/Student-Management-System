@@ -1,0 +1,109 @@
+Got it! Since you want to generate a **complete Library Management System** using Java on a platform like Replit AI/Antigravity, you need a detailed prompt so the AI builds a professional project with both frontend and backend.
+
+Use this prompt:
+
+---
+
+**Prompt:**
+
+> Build a complete **Library Management System** using **Java** as the backend. Create a modern, responsive frontend using **HTML5, CSS3, JavaScript, and Bootstrap**. Use **Java Servlets and JSP** for backend integration, and **MySQL** as the database. Follow the **MVC architecture** and organize the project professionally.
+>
+> The application should include:
+>
+> **Authentication**
+>
+> * Admin Login
+> * Logout
+> * Session management
+>
+> **Dashboard**
+>
+> * Display total books
+> * Total members
+> * Books issued
+> * Books returned
+> * Available books
+>
+> **Book Management**
+>
+> * Add Book
+> * Update Book
+> * Delete Book
+> * Search Book
+> * View All Books
+> * Book Categories
+> * ISBN, Author, Publisher, Quantity, Status
+>
+> **Member Management**
+>
+> * Add Member
+> * Update Member
+> * Delete Member
+> * Search Member
+> * View All Members
+>
+> **Issue & Return Books**
+>
+> * Issue book to a member
+> * Return book
+> * Due date calculation
+> * Fine calculation for late returns
+> * Prevent issuing unavailable books
+>
+> **Reports**
+>
+> * List of issued books
+> * Returned books
+> * Overdue books
+> * Search and filter reports
+>
+> **Database**
+>
+> * Design MySQL database with proper tables.
+> * Include SQL script for database creation.
+> * Use JDBC for database connectivity.
+>
+> **Validation**
+>
+> * Client-side validation using JavaScript
+> * Server-side validation in Java
+> * Proper error handling and success messages
+>
+> **UI Requirements**
+>
+> * Professional dashboard
+> * Responsive design
+> * Sidebar navigation
+> * Cards for statistics
+> * Tables with search functionality
+> * Attractive color theme
+> * Icons using Font Awesome
+>
+> **Project Structure**
+>
+> * Follow MVC architecture.
+> * Separate frontend, backend, models, controllers, services, DAO, and database configuration.
+> * Write clean, commented, and modular code.
+>
+> **Additional Features**
+>
+> * Pagination
+> * Search and filter
+> * Confirmation dialogs before delete
+> * Form validation
+> * Loading animations
+> * Toast notifications
+> * Mobile responsive design
+>
+> **Output Requirements**
+>
+> * Generate the complete source code.
+> * Include all HTML, CSS, JavaScript, Java, JSP, Servlets, SQL, and configuration files.
+> * Include a detailed README.md with installation steps.
+> * Include screenshots/placeholders for the application.
+> * Ensure the project runs without errors.
+> * Make the project production-ready and suitable for uploading to GitHub as a portfolio project.
+
+---
+
+This prompt will generate a **resume-worthy GitHub project** with a professional structure, making it suitable for showcasing in placements and interviews.
