@@ -1,14 +1,18 @@
 #!/bin/bash
-read -s -p "Paste your token: " TOKEN
+mkdir -p ~/.ssh
+cat > ~/.ssh/config << 'EOF'
+Host github.com
+  IdentityFile ~/.ssh/github_key
+  StrictHostKeyChecking no
+EOF
+chmod 600 ~/.ssh/config
+git remote set-url origin git@github.com:archanagottam123-png/student-management-system.git
+echo "Testing GitHub connection..."
+ssh -T git@github.com -i ~/.ssh/github_key -o StrictHostKeyChecking=no 2>&1 || true
 echo ""
-git config credential.helper store
-printf "https://archanagottam123-png:%s@github.com\n" "$TOKEN" > ~/.git-credentials
-git remote set-url origin https://github.com/archanagottam123-png/student-management-system.git
+echo "Pushing to GitHub..."
 git push -u origin main
-STATUS=$?
-rm -f ~/.git-credentials
-git config --unset credential.helper 2>/dev/null
-if [ $STATUS -eq 0 ]; then
+if [ $? -eq 0 ]; then
   echo ""
   echo "SUCCESS! Visit: https://github.com/archanagottam123-png/student-management-system"
 fi
